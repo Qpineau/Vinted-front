@@ -25,41 +25,39 @@ const Offer = () => {
     <div className="offer">
       <div className="offer-container">
         <div className="offer-pictures">
-          <img className="offer-picture" src="" alt="" />
+          <img
+            className="offer-picture"
+            src={data.product_image.secure_url}
+            alt={data.product_name}
+          />
         </div>
         <div className="offer-infos">
           <div>
-            <span className="offer-price">12.99 €</span>
+            <span className="offer-price">{data.product_price} €</span>
+
             <ul className="offer-list">
-              <li>
-                <span>Marque</span>
-                <span>Monki</span>
-              </li>
-              <li>
-                <span>Marque</span>
-                <span>Monki</span>
-              </li>
-              <li>
-                <span>Marque</span>
-                <span>Monki</span>
-              </li>
-              <li>
-                <span>Marque</span>
-                <span>Monki</span>
-              </li>
-              <li>
-                <span>Marque</span>
-                <span>Monki</span>
-              </li>
+              {data.product_details.map((elem, index) => {
+                const keys = Object.keys(elem);
+                console.log(keys);
+                return (
+                  <li>
+                    <span>{keys[0]} </span>
+                    <span>{elem[keys[0]]}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="divider"></div>
           <div className="offer-content">
-            <p className="name"></p>
-            <p className="description"></p>
+            <p className="name">{data.product_name}</p>
+            <p className="description">{data.product_description}</p>
             <div className="offer-avatar-username">
-              <img src="" alt="" />
-              <span></span>
+              <img
+                src={data.owner.account.avatar.secure_url}
+                alt={data.owner.account.username}
+              />
+              <span>{data.owner.account.username}</span>
             </div>
           </div>
           <button>Acheter</button>

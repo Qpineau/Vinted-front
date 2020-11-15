@@ -1,12 +1,16 @@
 /* HEADER */
 
-.header {
+header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 1280px;
   margin: auto;
   padding: 10px 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 .logo {
@@ -57,7 +61,7 @@
 /* HOME */
 
 .home-pub {
-  background-image: url();
+  background-image: url("./Assets/bcg_header.jpeg");
   height: 455px;
   width: 100%;
   position: relative;
@@ -65,7 +69,15 @@
   background-size: cover;
 }
 
-.home-pub div {
+.home-pub-dech {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
+}
+
+.home-pub > div {
   width: 1280px;
   margin: auto;
 }
@@ -189,6 +201,26 @@
 .offer-list {
   list-style-type: none;
   padding: 0;
+}
+
+.offer-list li {
+  display: flex;
+  padding: 2px 0;
+}
+
+.offer-list span:nth-child(odd) {
+  color: #999;
+}
+
+.offer-list span:nth-child(2n) {
+  color: #666;
+  font-weight: 700;
+}
+
+.offer-list span {
+  flex: 1 1;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 ul {

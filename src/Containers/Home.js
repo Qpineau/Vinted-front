@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../App.css";
+import dechirure from "../Assets/dechirure.svg";
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -23,7 +24,7 @@ const Home = () => {
   ) : (
     <>
       <div className="home-pub">
-        <img src="" alt="" />
+        <img className="home-pub-dech" src={dechirure} alt="" />
         <div>
           <div className="home-ready">
             "Prêts à faire du tri dans vos placards ?"
