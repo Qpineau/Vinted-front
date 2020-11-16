@@ -39,7 +39,11 @@ const Home = () => {
               <div className="offers-container">
                 <div className="offer-avatar">
                   <img
-                    src={offer.owner.account.avatar.secure_url}
+                    src={
+                      offer.owner.account.avatar
+                        ? offer.owner.account.avatar.secure_url
+                        : null
+                    }
                     alt={offer.product_name}
                   />
                   <span>{offer.owner.account.username}</span>

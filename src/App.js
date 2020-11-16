@@ -1,11 +1,13 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+
 import Cookie from "js-cookie";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Containers/Home.js";
 import Offer from "./Containers/Offer";
 import Header from "./Containers/Header";
+import Signup from "./Containers/Signup";
+import Login from "./Containers/Login";
 
 function App() {
   const [token, setToken] = useState(Cookie.get("userToken") || null);
@@ -28,12 +30,12 @@ function App() {
         <Route path="/offer/:id">
           <Offer />
         </Route>
-        {/* <Route path="/signup">
+        <Route path="/signup">
           <Signup setUser={setUser} />
         </Route>
         <Route path="/login">
           <Login setUser={setUser} />
-        </Route> */}
+        </Route>
         <Route path="/">
           <Home />
         </Route>
