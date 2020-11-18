@@ -8,7 +8,9 @@ const Header = ({ token, setUser }) => {
     <header>
       <>
         <div>
-          <img className="logo" src={logo} alt="" />
+          <Link to="/">
+            <img className="logo" src={logo} alt="" />
+          </Link>
         </div>
         <div className="search-container">
           <input
@@ -40,9 +42,11 @@ const Header = ({ token, setUser }) => {
             </Link>
           </div>
         )}
-        <button className="header-button button-sold">
-          Vends tes articles
-        </button>
+        <Link to={"/publish"}>
+          <button className="header-button button-sold">
+            Vends tes articles
+          </button>
+        </Link>
       </>
     </header>
   );

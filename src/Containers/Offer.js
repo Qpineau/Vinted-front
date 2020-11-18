@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   const { id } = useParams();
 
   const [data, setData] = useState({});
@@ -52,14 +52,36 @@ const Offer = () => {
             <p className="name">{data.product_name}</p>
             <p className="description">{data.product_description}</p>
             <div className="offer-avatar-username">
-              <img
-                src={data.owner.account.avatar.secure_url}
-                alt={data.owner.account.username}
-              />
+              {data.owner.account.avatar ? (
+                <img
+                  src={data.owner.account.avatar.secure_url}
+                  alt={data.owner.account.username}
+                />
+              ) : null}
+
               <span>{data.owner.account.username}</span>
             </div>
           </div>
-          <button>Acheter</button>
+          {token ? (
+            <Link
+              to={{
+                pathname: "/payment",
+                state: {
+                  title: data.product_name,
+                  price: data.product_price,
+                  name: data._id,
+                },
+              }}
+            >
+              <button>Acheter</button>
+            </Link>
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+              }}
+            />
+          )}
         </div>
       </div>
     </div>

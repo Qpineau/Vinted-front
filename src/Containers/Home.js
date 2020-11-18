@@ -38,14 +38,13 @@ const Home = () => {
             <Link to={`/offer/${offer._id}`} key={offer._id}>
               <div className="offers-container">
                 <div className="offer-avatar">
-                  <img
-                    src={
-                      offer.owner.account.avatar
-                        ? offer.owner.account.avatar.secure_url
-                        : null
-                    }
-                    alt={offer.product_name}
-                  />
+                  {offer.owner.account.avatar ? (
+                    <img
+                      src={offer.owner.account.avatar.secure_url}
+                      alt={offer.owner.account.username}
+                    />
+                  ) : null}
+
                   <span>{offer.owner.account.username}</span>
                 </div>
                 <div>

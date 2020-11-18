@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
 const Login = ({ setUser }) => {
   const history = useHistory();
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +23,7 @@ const Login = ({ setUser }) => {
       if (response.data.token) {
         setUser(response.data.token);
 
-        history.push("/");
+        history.push(location.state.fromPublish ? "/publish" : "/");
       } else {
         alert("Une erreur est survenue");
       }

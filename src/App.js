@@ -8,6 +8,8 @@ import Offer from "./Containers/Offer";
 import Header from "./Containers/Header";
 import Signup from "./Containers/Signup";
 import Login from "./Containers/Login";
+import Publish from "./Containers/Publish";
+import Payment from "./Containers/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookie.get("userToken") || null);
@@ -28,13 +30,19 @@ function App() {
       <Header token={token} setUser={setUser} />
       <Switch>
         <Route path="/offer/:id">
-          <Offer />
+          <Offer token={token} />
         </Route>
         <Route path="/signup">
           <Signup setUser={setUser} />
         </Route>
         <Route path="/login">
           <Login setUser={setUser} />
+        </Route>
+        <Route path="/publish">
+          <Publish token={token} />
+        </Route>
+        <Route path="/payment">
+          <Payment />
         </Route>
         <Route path="/">
           <Home />
